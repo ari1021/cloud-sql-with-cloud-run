@@ -29,7 +29,6 @@ import (
 	"strconv"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/joho/godotenv"
 )
 
 // vote struct contains a single row from the votes table in the database.
@@ -85,10 +84,6 @@ func (app *app) indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalf("Error loading .env file: %v", err)
-	}
 	app := newApp()
 
 	http.HandleFunc("/", app.indexHandler)
