@@ -123,7 +123,9 @@ func newApp() *app {
 			log.Fatalf("initSocketConnectionPool: unable to connect: %v", err)
 		}
 	}
-
+	if err := app.db.Ping(); err != nil {
+		log.Fatalf("unable to ping: %v", err)
+	}
 	// Create the votes table if it does not already exist.
 	if _, err = app.db.Exec(`CREATE TABLE IF NOT EXISTS votes
 	( id SERIAL NOT NULL, created_at datetime NOT NULL, updated_at datetime  NOT NULL,
