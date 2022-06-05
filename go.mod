@@ -1,4 +1,4 @@
-module github.com/ari1021/cloud-sql-with-cloud-run
+module github.com/arkuchy/cloud-sql-with-cloud-run
 
 go 1.15
 
